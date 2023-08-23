@@ -4,6 +4,11 @@ from django.http.response import JsonResponse
 from .models import Student
 from django.http.response import Http404
 from rest_framework.response import Response
+from django.contrib.auth.models import User
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import authenticate, login
+import json
 
 
 class StudentView(APIView):
@@ -47,6 +52,29 @@ class StudentView(APIView):
         student_to_delete.delete()
         return JsonResponse("Student Deleted Successfully", safe=False)
 
+@csrf_exempt
+def register(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        username = data['username']
+        password = data['password']
+        user = User.objects.create_user(username=username, password=password)
+        return JsonResponse({'message': 'User registered successfully'})
+    return JsonResponse({'message': 'Invalid request method'})
+
+@csrf_exempt
+def login(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        username = data['username']
+        password = data['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return JsonResponse({'message': 'Login successful'})
+        else:
+            return JsonResponse({'message': 'Invalid credentials'})
+    return JsonResponse({'message': 'Invalid request method'})
 
 
 

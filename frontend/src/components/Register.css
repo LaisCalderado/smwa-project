@@ -1,0 +1,77 @@
+/* Estilos para o container principal */
+.register-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+  }
+  
+  /* Estilos para o formulário de registro */
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f1f1f1;
+    width: 150%;
+    max-width: 550px;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Estilos para o título */
+  .register-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #000000;
+  }
+  
+  /* Estilos para os campos de entrada */
+  .register-field {
+    margin: 1rem 0;
+    width: 100%;
+  }
+  
+  .register-input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos para os botões */
+  .register-button {
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    background-color: #5b6ccb;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .register-button-secondary {
+    background-color: transparent;
+    color: #5b6ccb;
+    border: 2px solid #5b6ccb;
+  }
+  
+  .register-button:hover {
+    background-color: #b9bed9;
+    transform: translateY(-2px);
+  }
+  
+  /* Estilos para mensagens de erro */
+  .register-error {
+    margin-top: 1rem;
+    color: red;
+    font-size: 0.9rem;
+  }
+  
