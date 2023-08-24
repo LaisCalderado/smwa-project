@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from "react";
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -8,14 +8,24 @@ import {
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
 import { Navbar, Button } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "./AuthContext";
+import { logout as Sair } from "../config/auth";
 import logo from '../static/logo.png';
 import '../App.css';
 
 const Navigation = () => {
-  const handleLogout = () => {
-    // Coloque aqui a lógica para efetuar o logout
-    // Por exemplo, limpar os tokens de autenticação, redirecionar para a página de login, etc.
-  };
+
+  const { logout } = useContext(AuthContext);
+
+  const handleLogout = async () => {
+    try {
+        Sair();
+        await logout();
+    } catch (error) {
+        console.log(error.message);
+    }
+};
 
   return (
     <div>
