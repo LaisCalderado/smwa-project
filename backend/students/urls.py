@@ -5,6 +5,4 @@ from . import views
 urlpatterns = [
     path("students/", StudentView.as_view()),
     path("students/<int:pk>/", StudentView.as_view()),
-    path('api/register/', views.register),
-    path('api/login/', views.login),
 ]

@@ -19,7 +19,7 @@ const LoginPage = () => {
                 password: password,
             };
 
-            api.post('/api/login/', data)
+            api.post('api/token/', data)
                 .then((res) => {
                     console.log(res.data);
                     login(res.data.access, res.data.user);

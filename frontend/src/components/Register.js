@@ -18,7 +18,7 @@ const RegisterPage = () => {
             };
 
             try {
-                const response = await api.post('api/register/', data);
+                const response = await api.post('users/create/', data);
                 if (response.status === 201) {
                     Swal.fire('Sucesso', 'Usuário cadastrado', 'success');
                     navigate('/');
