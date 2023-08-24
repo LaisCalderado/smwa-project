@@ -24,7 +24,7 @@ const LoginPage = () => {
                     console.log(res.data);
                     login(res.data.access, res.data.user);
                     // Navegar para a próxima página após o login bem-sucedido
-                    navigate("/home");
+                    navigate("/");
                 })
                 .catch((err) => {
                     Swal.fire(
